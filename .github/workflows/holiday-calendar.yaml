@@ -22,7 +22,7 @@ jobs:
     - name: Generate holiday calendar
       run: |
         mkdir -p public
-        uv run holiday > public/holidays.csv
+        uv run holidays > public/holidays.csv
 
     - name: Upload static files as artifact
       id: deployment
