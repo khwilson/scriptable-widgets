@@ -28,7 +28,7 @@ jobs:
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
-        path: public/
+        path: helpers/holiday_csv/public/
 
 
   # Deployment job
