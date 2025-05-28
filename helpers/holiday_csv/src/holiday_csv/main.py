@@ -1,9 +1,9 @@
 import csv
 import sys
-
-import pandas as pd
-import holidays
 from datetime import datetime, timedelta
+
+import holidays
+
 
 def generate_holiday_calendar():
     # Get today's date
@@ -14,14 +14,20 @@ def generate_holiday_calendar():
     end_date = today + timedelta(days=60)
 
     # Get Ontario holidays
-    on_holidays = holidays.CA(prov='ON')
+    on_holidays = holidays.CA(prov="ON")
 
     writer = csv.writer(sys.stdout)
     writer.writerow(["date", "day_of_week", "is_holiday"])
 
     cur_date = start_date
     while cur_date <= end_date:
-        writer.writerow([cur_date.strftime("%Y-%m-%d"), cur_date.strftime("%A"), cur_date in on_holidays])
+        writer.writerow(
+            [
+                cur_date.strftime("%Y-%m-%d"),
+                cur_date.strftime("%A"),
+                cur_date in on_holidays,
+            ]
+        )
         cur_date += timedelta(days=1)
 
 
